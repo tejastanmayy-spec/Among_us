@@ -22,7 +22,6 @@ A laptop-first, responsive landing page for an upcoming Among Us event, built wi
 - React 18
 - Vite 5
 - Plain CSS (no UI framework)
-- Google Apps Script + Google Sheets for registration storage
 
 ## Getting started
 
