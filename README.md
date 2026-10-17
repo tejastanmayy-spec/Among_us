@@ -40,18 +40,6 @@ Then open http://localhost:5173.
 | `npm run build` | Create a production build in `dist/` |
 | `npm run preview` | Preview the production build locally |
 
-## Registration setup (Google Sheets)
-
-Registration saves to a Google Sheet through an Apps Script web app. Full steps are in [SHEETS_SETUP.md](SHEETS_SETUP.md). In short:
-
-1. Copy `.env.example` to `.env`.
-2. Set `VITE_SHEET_URL` to your Apps Script web app URL (it ends in `/exec`).
-3. Restart `npm run dev`.
-
-If `VITE_SHEET_URL` is not set, the form still works but nothing is saved, and a warning is printed to the browser console.
-
-> `VITE_` variables are visible in the browser. Never put real secrets in them. `.env` is git-ignored; only commit `.env.example` with placeholders.
-
 ## Customising
 
 - **Event date:** change the target date in `src/components/Countdown.jsx`.
