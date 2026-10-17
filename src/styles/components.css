@@ -1,0 +1,56 @@
+.ibtn{background:none;border:2px solid #ffffff33;color:var(--text);border-radius:12px;height:42px;padding:0 14px;font:600 14px "Space Grotesk";cursor:pointer;transition:.2s}
+.ibtn:hover{border-color:var(--yellow);transform:translateY(-2px)}
+.nr{display:flex;gap:10px;align-items:center}
+.mapw{position:relative}
+.map{position:absolute;right:0;top:54px;width:310px;background:var(--cream);color:var(--ink);border-radius:18px;padding:14px;display:grid;grid-template-columns:1fr 1fr;gap:8px;opacity:0;transform:translateY(-10px) scale(.96);pointer-events:none;visibility:hidden;transition:.25s;box-shadow:0 18px 40px #000a}
+.map.open{opacity:1;transform:none;pointer-events:auto;visibility:visible}
+.map a{background:#fff;border:2px solid #1b214022;border-radius:12px;padding:10px;text-decoration:none;font:700 14px "Space Grotesk";transition:.2s}
+.map a:hover{background:var(--yellow);transform:scale(1.05) rotate(-1deg)}
+.map small{display:block;font:500 12px Inter;color:#55597a}
+.chips{display:flex;gap:10px;flex-wrap:wrap;margin:-8px 0 26px}
+.chips span{border:2px solid var(--yellow);color:var(--yellow);border-radius:99px;padding:4px 14px;font:700 14px "Space Grotesk"}
+.stampbar{display:flex;align-items:center;gap:12px;margin:0 0 30px;flex-wrap:wrap}
+.stp{width:46px;height:46px;border-radius:50%;border:3px dashed #ffffff55;display:grid;place-items:center;font-size:22px;transition:.4s}
+.stp.on{border:3px solid var(--green);background:var(--green);color:var(--ink);transform:rotate(-12deg) scale(1.12)}
+.shield{margin-left:10px;font:700 17px "Space Grotesk";color:var(--muted)}
+.shield.on{color:var(--green);animation:pop .6s}
+.tg,.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.tk{background:var(--cream);color:var(--ink);border-radius:22px;padding:24px;min-height:310px;transition:box-shadow .4s}
+.tk h3{font-size:22px;margin-bottom:4px}.tk p{margin:0 0 14px;font-size:15px}
+.tk.ok{box-shadow:0 0 0 4px var(--green),0 0 30px #8dd98288}
+.wr{position:relative;display:flex;justify-content:space-between;padding:6px 24px}
+.wr>div{position:relative;z-index:1;display:flex;flex-direction:column;gap:14px}
+.wb{width:44px;height:44px;border-radius:50%;border:4px solid #1b2140;cursor:pointer;transition:.2s;background:var(--c)}
+.wb:hover{transform:scale(1.15)}
+.wb.sel{box-shadow:0 0 0 5px #1b2140;transform:scale(1.15)}
+.wb.dn{pointer-events:none;box-shadow:0 0 0 3px #1b2140,0 0 14px var(--c);animation:plug .5s ease-out}
+.wb.sel{animation:wsel .8s ease-in-out infinite}
+.wb.bad{animation:wshake .4s}
+.wsvg{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none;z-index:0}
+.wsvg path{fill:none;stroke-linecap:round}
+.w-out{stroke:#1b2140;stroke-width:14;stroke-dasharray:1;stroke-dashoffset:1;animation:wdraw .55s ease-out forwards}
+.w-in{stroke:var(--c);stroke-width:8;stroke-dasharray:1;stroke-dashoffset:1;animation:wdraw .55s ease-out forwards}
+.w-spark{stroke:#fff;stroke-width:3;stroke-dasharray:.08 .92;stroke-dashoffset:0;opacity:0;animation:wspark 1.4s linear .55s infinite}
+.wr.all .w-spark{opacity:.9}
+.wr.all .w-in{filter:drop-shadow(0 0 5px var(--c))}
+@keyframes wdraw{to{stroke-dashoffset:0}}
+@keyframes wspark{from{stroke-dashoffset:.08;opacity:.9}to{stroke-dashoffset:-.92;opacity:.9}}
+@keyframes plug{0%{transform:scale(1.5)}60%{transform:scale(.85)}100%{transform:scale(1)}}
+@keyframes wsel{0%,100%{box-shadow:0 0 0 5px #1b2140}50%{box-shadow:0 0 0 9px #1b214055}}
+@keyframes wshake{0%,100%{transform:translateX(0)}20%{transform:translateX(-6px)}40%{transform:translateX(6px)}60%{transform:translateX(-4px)}80%{transform:translateX(4px)}}
+@media (prefers-reduced-motion:reduce){.w-out,.w-in{animation-duration:.01s}.w-spark,.wb.sel,.wb.bad,.wb.dn{animation:none}}
+.rdr{position:relative;height:64px;background:#1b2140;border-radius:14px;margin:10px 0}
+.rdr i{position:absolute;right:0;top:0;bottom:0;width:48px;border-radius:0 14px 14px 0;background:repeating-linear-gradient(90deg,#8DD982 0 4px,#0000 4px 8px);opacity:.6}
+.crd{position:absolute;left:6px;top:8px;width:70px;height:48px;border-radius:8px;background:var(--yellow);border:3px solid #fff;cursor:grab;display:grid;place-items:center;font:700 12px "Space Grotesk";touch-action:none;user-select:none}
+.msg{font:700 15px "Space Grotesk";min-height:24px;margin:6px 0}
+.pads{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
+.pad{height:58px;border:0;border-radius:14px;background:var(--c);opacity:.5;cursor:pointer;transition:.15s}
+.pad.lit{opacity:1;transform:scale(1.07);box-shadow:0 0 24px var(--c)}
+.btn.dk{background:var(--ink);box-shadow:0 6px 0 #000}
+.term{background:#070a1c;border:2px solid #ffffff22;border-radius:18px;padding:18px;font:500 15px/1.8 "Space Grotesk",monospace;color:var(--green);min-height:230px}
+.term div{animation:pop .4s}
+.tbar{height:10px;border-radius:9px;background:#ffffff22;margin:14px 0 18px;overflow:hidden}.tbar b{display:block;height:100%;width:0;background:var(--green);transition:width .6s}
+.fp{margin:0 0 14px;color:var(--muted);max-width:480px}.fp b{color:var(--text)}
+#black{position:fixed;inset:0;z-index:98;background:radial-gradient(circle 120px at var(--x,50%) var(--y,50%),#0000,#000 100%);opacity:0;pointer-events:none;visibility:hidden;transition:opacity .5s,visibility .5s;display:grid;place-items:center;color:#fff;text-align:center;font:700 clamp(30px,5vw,64px) "Space Grotesk"}
+@media(max-width:900px){.tg,.g3{grid-template-columns:1fr}}
+@media(max-width:560px){#mb{display:none}}

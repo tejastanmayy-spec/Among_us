@@ -1,0 +1,46 @@
+/* hero */
+.hero{min-height:calc(100vh - 68px);padding:70px 0 120px;position:relative}
+.hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center}
+.badge{display:inline-flex;gap:8px;align-items:center;background:#f4585826;border:1px solid var(--red);color:#ffb3b3;padding:6px 14px;border-radius:99px;font:600 14px Inter;margin-bottom:22px}
+.dot{width:9px;height:9px;border-radius:50%;background:var(--red);animation:blink 1s infinite}
+@keyframes blink{50%{opacity:.2}}
+h1{font-size:clamp(46px,7vw,92px);letter-spacing:-.03em}
+h1 .gl{display:inline-block;color:var(--red);position:relative;text-shadow:0 0 30px #f4585877}
+h1 .gl::before,h1 .gl::after{content:attr(data-t);position:absolute;left:0;top:0;overflow:hidden;width:100%}
+h1 .gl::before{color:var(--blue);animation:glitch 3s infinite steps(1);clip-path:inset(0 0 55% 0)}
+h1 .gl::after{color:var(--yellow);animation:glitch 3s .4s infinite steps(1) reverse;clip-path:inset(55% 0 0 0)}
+@keyframes glitch{0%,88%,100%{transform:none}90%{transform:translate(-5px,2px)}93%{transform:translate(5px,-2px)}96%{transform:translate(-3px,1px)}}
+.lead{font-size:20px;color:var(--muted);max-width:540px;margin:22px 0 30px}
+.lead b{color:var(--cream)}
+.cta{display:flex;gap:18px;flex-wrap:wrap}
+.type{min-height:1.6em;color:var(--green);font:500 16px "Space Grotesk";margin-top:26px}
+.type::after{content:"▍";animation:blink .8s infinite}
+.win{position:relative;aspect-ratio:1/1.05;max-width:440px;margin:0 auto;width:100%;border:10px solid #8b93b8;border-radius:34% 34% 28px 28px/22% 22% 28px 28px;background:radial-gradient(circle at 30% 25%,#27306a,#0a0e26);box-shadow:inset 0 0 60px #000a,0 0 60px #67c9f544;overflow:hidden}
+.win .planet{position:absolute;border-radius:50%;animation:float 7s ease-in-out infinite}
+.p1{width:90px;height:90px;top:12%;left:10%;background:radial-gradient(circle at 30% 30%,#9ee0ff,#3b7fb0)}
+.p1::after{content:"";position:absolute;left:-26px;right:-26px;top:38px;height:16px;border:3px solid var(--blue);border-radius:50%;transform:rotate(-18deg)}
+.p2{width:46px;height:46px;top:20%;right:12%;background:radial-gradient(circle at 30% 30%,#ffe9a8,#e0a52b);animation-delay:-3s!important}
+.hero-cm{position:absolute;left:50%;bottom:6%;width:62%;transform:translateX(-50%);animation:bob 3.2s ease-in-out infinite;cursor:pointer;filter:drop-shadow(0 18px 18px #0008)}
+.hero-cm .cm{width:100%;display:block;transition:transform .2s}
+.hero-cm:hover .cm{transform:rotate(-6deg) scale(1.04)}
+.hero-cm .say{position:absolute;top:-48px;right:-30px;background:var(--cream);color:var(--ink);font:700 14px "Space Grotesk";padding:8px 14px;border-radius:14px 14px 14px 2px;opacity:0;transform:translateY(8px) scale(.9);transition:.25s;white-space:nowrap}
+.hero-cm:hover .say,.hero-cm.say-on .say{opacity:1;transform:none}
+@keyframes float{50%{transform:translateY(-14px) rotate(6deg)}}
+@keyframes bob{50%{transform:translateX(-50%) translateY(-16px) rotate(2deg)}}
+.cm{overflow:visible}
+/* floor walkers */
+.floor{position:absolute;left:0;right:0;bottom:0;height:96px;overflow:hidden;border-top:2px dashed #ffffff22;background:linear-gradient(#0000,#0d123099)}
+.walker{position:absolute;bottom:6px;left:-90px;width:54px;animation:walk linear infinite;cursor:pointer}
+.walker .cm{width:100%;display:block;animation:step .45s infinite ease-in-out}
+.walker.out .cm{animation:eject 1.6s forwards}
+@keyframes walk{to{transform:translateX(calc(100vw + 180px))}}
+@keyframes step{50%{transform:translateY(-7px) rotate(3deg)}}
+@keyframes eject{0%{transform:none;opacity:1}100%{transform:translate(280px,-120px) rotate(900deg) scale(0);opacity:0}}
+.hint{position:absolute;left:28px;bottom:104px;font-size:13px;color:var(--muted)}
+/* countdown */
+.count{display:flex;gap:14px;margin-top:30px}
+.cd{background:var(--bg2);border:1px solid #ffffff22;border-radius:14px;min-width:84px;padding:12px 8px;text-align:center}
+.cd b{display:block;font:700 34px "Space Grotesk";color:var(--yellow);font-variant-numeric:tabular-nums}
+.cd b.tick{animation:tick .4s}
+@keyframes tick{40%{transform:translateY(-6px) scale(1.15);color:#fff}}
+.cd span{font-size:13px;color:var(--muted)}

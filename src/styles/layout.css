@@ -1,0 +1,13 @@
+/* progress */
+#prog{position:fixed;top:env(safe-area-inset-top,0px);left:0;height:5px;width:0;background:linear-gradient(90deg,var(--green),var(--yellow),var(--red));z-index:60;box-shadow:0 0 12px var(--green)}
+#tasks{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:50;background:var(--cream);color:var(--ink);font:700 13px "Space Grotesk";padding:8px 14px;border-radius:99px;box-shadow:0 6px 20px #0006}
+/* nav */
+nav{position:sticky;top:0;z-index:40;backdrop-filter:blur(10px);background:#0d1230cc;border-bottom:1px solid #ffffff18}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{display:flex;gap:10px;align-items:center;font:700 20px "Space Grotesk";text-decoration:none}
+.logo .cm{width:30px;height:36px}
+nav ul{display:flex;gap:28px;list-style:none;margin:0;padding:0}
+nav ul a{text-decoration:none;color:var(--muted);font-weight:500;position:relative}
+nav ul a::after{content:"";position:absolute;left:0;bottom:-4px;height:2px;width:0;background:var(--yellow);transition:width .3s}
+nav ul a:hover::after{width:100%}
+nav ul a:hover{color:var(--text)}

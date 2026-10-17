@@ -1,0 +1,14 @@
+[data-theme=light]{--bg:#fff1e4;--bg2:#ffe0c6;--text:#1b2140;--muted:#4a5075;color-scheme:light}
+[data-theme=light] nav{background:#fff1e4dd;border-color:#1b214022}
+[data-theme=light] #stars{filter:invert(1);opacity:.3}
+[data-theme=light] .badge{color:#a02020}
+[data-theme=light] .lead b{color:var(--ink)}
+[data-theme=light] .cd{border-color:#1b214033}
+[data-theme=light] .cd b,[data-theme=light] .step time,[data-theme=light] .chips span{color:#a06c00;border-color:#a06c00}
+[data-theme=light] .step::before{background:var(--bg)}
+[data-theme=light] .card,[data-theme=light] .tk{box-shadow:0 0 0 2px #1b214022}
+[data-theme=light] footer,[data-theme=light] .tl::before{border-color:#1b214022}
+[data-theme=light] .tl::before{background:#1b214022}
+[data-theme=light] .type,[data-theme=light] .shield.on{color:#2d7a3a}
+[data-theme=light] .ibtn{border-color:#1b214044}
+[data-theme=light] .stp{border-color:#1b214055}

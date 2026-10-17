@@ -1,0 +1,47 @@
+/* Pet cursor: the dog follows the mouse and replaces the system arrow (mouse devices only).
+   The "has-pet" class is added by PetCursor.jsx, so if JS fails the normal cursor stays. */
+html.has-pet,html.has-pet *{cursor:none!important}
+html.has-pet input[type=text],html.has-pet input[type=email],html.has-pet input[type=tel],html.has-pet textarea{cursor:text!important}
+
+.pet{position:fixed;left:0;top:0;width:0;height:0;z-index:9999;pointer-events:none;opacity:0;transition:opacity .15s;will-change:transform}
+.pet.show{opacity:1}
+.pet.show.hide{opacity:0}
+.pet-flip{--s:calc(56px*var(--k,1));--hx:calc(38px*var(--k,1));--hy:calc(20px*var(--k,1));width:var(--s);height:var(--s);margin:calc(var(--hy)*-1) 0 0 calc(var(--hx)*-1);transform-origin:var(--hx) var(--hy);transform:scaleX(var(--f,1))}
+.pet-pop{width:100%;height:100%;transform-origin:50% 85%}
+.pet-img{display:block;width:100%;height:100%;user-select:none;-webkit-user-drag:none;filter:var(--pet-filter,none) drop-shadow(0 4px 3px #0007);transform-origin:50% 85%;animation:petIdle 1.6s ease-in-out infinite}
+.pet.run .pet-img{animation:petRun .26s ease-in-out infinite}
+.pet.hot .pet-img{animation:petHot .3s ease-in-out infinite}
+.pet.bark .pet-pop{animation:petBark .35s ease-out}
+@keyframes petIdle{0%,100%{transform:translateY(0) rotate(calc(var(--lean,0deg) - 4deg))}50%{transform:translateY(-3px) rotate(calc(var(--lean,0deg) + 4deg))}}
+@keyframes petRun{0%,100%{transform:translateY(0) rotate(var(--lean,0deg)) scale(1.04,.94)}50%{transform:translateY(-8px) rotate(calc(var(--lean,0deg) - 6deg)) scale(.96,1.06)}}
+@keyframes petHot{0%,100%{transform:scale(1.22) rotate(-8deg)}50%{transform:scale(1.28) rotate(8deg)}}
+@keyframes petBark{0%{transform:scale(1)}30%{transform:scale(1.4,.7)}60%{transform:scale(.85,1.25)}100%{transform:scale(1)}}
+
+/* Arrow mode: a plain pointer, white by default, sized and tinted by the settings */
+.pet-arrow{display:none;position:absolute;left:0;top:0;width:calc(24px*var(--k,1));height:calc(24px*var(--k,1));margin:-2px 0 0 -3px;fill:var(--pet-color,#fff);stroke:#111;stroke-width:1.4;stroke-linejoin:round;filter:drop-shadow(0 2px 2px #0006);transition:transform .12s}
+html[data-cursor=arrow] .pet-arrow{display:block}
+html[data-cursor=arrow] .pet-flip{display:none}
+html[data-cursor=arrow] .pet.hot .pet-arrow{transform:scale(1.2)}
+html[data-cursor=system] .pet{display:none}
+html.has-pet .cs,html.has-pet .cs *{cursor:none!important}
+
+/* Cursor settings: small button bottom-left, opens a panel */
+.cs{position:fixed;left:18px;bottom:18px;z-index:130;display:flex;flex-direction:column;align-items:flex-start;gap:10px}
+.cs-fab{width:44px;height:44px;border-radius:50%;border:2px solid #ffffff33;background:var(--bg2);color:var(--text);display:grid;place-items:center;cursor:pointer;box-shadow:0 6px 18px #0006}
+.cs-fab:hover{border-color:var(--yellow)}
+.cs-panel{width:250px;background:var(--bg2);color:var(--text);border:1px solid #ffffff2a;border-radius:16px;padding:14px;display:flex;flex-direction:column;gap:12px;box-shadow:0 12px 34px #0008;font:600 14px "Space Grotesk",Inter,sans-serif}
+.cs-seg{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;background:#0003;border-radius:10px;padding:3px}
+.cs-seg button{border:0;border-radius:8px;padding:7px 0;background:none;color:inherit;font:inherit;cursor:pointer}
+.cs-seg button.on{background:var(--yellow);color:var(--ink)}
+.cs-panel label{display:flex;flex-direction:column;gap:6px}
+.cs-panel label span{float:right;color:var(--muted);font-weight:500}
+.cs-panel input[type=range]{width:100%;accent-color:var(--yellow)}
+.cs-sw{display:flex;flex-wrap:wrap;gap:7px;align-items:center}
+.cs-sw button{width:24px;height:24px;border-radius:50%;border:2px solid #ffffff44;cursor:pointer;padding:0}
+.cs-sw button.on{outline:3px solid var(--yellow);outline-offset:1px}
+.cs-sw button.orig{background:conic-gradient(#67C9F5,#8DD982,#FFD166,#F45858,#67C9F5)}
+.cs-sw input[type=color]{width:28px;height:28px;padding:0;border:0;background:none;cursor:pointer}
+.cs .off,.cs-sw.off{opacity:.4;pointer-events:none}
+.cs-reset{border:2px solid #ffffff44;border-radius:10px;background:none;color:inherit;font:inherit;padding:8px;cursor:pointer}
+.cs-reset:hover{border-color:var(--yellow);color:var(--yellow)}
+[data-theme=light] .cs-panel,[data-theme=light] .cs-fab{background:#fff;border-color:#1b214033}

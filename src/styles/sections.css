@@ -1,0 +1,25 @@
+/* sections */
+section{padding:110px 0}
+h2{font-size:clamp(34px,4.5vw,56px);letter-spacing:-.02em;margin-bottom:14px}
+.sub{color:var(--muted);max-width:600px;margin:0 0 50px}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.card{background:var(--cream);color:var(--ink);border-radius:22px;padding:26px;transform-style:preserve-3d;transition:transform .15s,box-shadow .3s;position:relative;overflow:hidden}
+.card::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at var(--mx,50%) var(--my,50%),#fff9,#fff0 55%);opacity:0;transition:opacity .3s;pointer-events:none}
+.card:hover{box-shadow:0 22px 40px #0008}
+.card:hover::after{opacity:1}
+.ic{width:52px;height:52px;border-radius:14px;display:grid;place-items:center;margin-bottom:18px;color:var(--ink);transition:transform .4s}
+.card:hover .ic{transform:rotate(-12deg) scale(1.15)}
+.card h3{font-size:23px;margin-bottom:8px}
+.card p{margin:0;font-size:15.5px}
+/* timeline */
+.tl{position:relative;max-width:760px;margin-left:0;padding-left:46px}
+.tl::before{content:"";position:absolute;left:15px;top:6px;bottom:6px;width:4px;border-radius:4px;background:#ffffff1f}
+.tl .fill{position:absolute;left:15px;top:6px;width:4px;border-radius:4px;background:var(--green);height:0;box-shadow:0 0 14px var(--green)}
+.step{position:relative;padding:0 0 38px;opacity:.45;transition:opacity .5s,transform .5s;transform:translateX(-10px)}
+.step.on{opacity:1;transform:none}
+.step::before{content:"";position:absolute;left:-39px;top:4px;width:22px;height:22px;border-radius:50%;background:var(--bg);border:3px solid #ffffff44;transition:.4s}
+.step.on::before{background:var(--green) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231b2140' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5 9-10'/%3E%3C/svg%3E") center/70%no-repeat;border-color:var(--green);box-shadow:0 0 16px var(--green)}
+.step time{font:700 15px "Space Grotesk";color:var(--yellow)}
+.step h3{font-size:24px;margin:2px 0 4px}
+.step p{margin:0;color:var(--muted)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}

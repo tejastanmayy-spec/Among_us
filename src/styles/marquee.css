@@ -1,0 +1,5 @@
+/* marquee */
+.mq{background:var(--yellow);color:var(--ink);transform:rotate(-1.2deg);margin:-30px -20px 0;overflow:hidden;white-space:nowrap;border-block:4px solid var(--ink);position:relative;z-index:2}
+.mq div{display:inline-block;padding:14px 0;font:700 22px "Space Grotesk";animation:mq 28s linear infinite}
+.mq:hover div{animation-play-state:paused}
+@keyframes mq{to{transform:translateX(-50%)}}

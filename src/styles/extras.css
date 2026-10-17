@@ -1,0 +1,66 @@
+/* form: two-column rows and the phone input (same look as the other inputs) */
+input[type=tel]{width:100%;font:500 16px Inter;padding:13px 14px;border:2px solid #1b214033;border-radius:12px;background:#fff;color:var(--ink);transition:border .2s,box-shadow .2s}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:0 16px}
+@media (max-width:560px){.row2{grid-template-columns:1fr}}
+
+/* comic word that pops where you click */
+.pop{position:fixed;z-index:75;pointer-events:none;white-space:nowrap;font:700 40px/1 "Space Grotesk",Inter,sans-serif;font-style:italic;text-transform:uppercase;color:var(--yellow);text-shadow:2px 2px 0 #0d1230,-2px 2px 0 #0d1230,2px -2px 0 #0d1230,-2px -2px 0 #0d1230,0 5px 0 #0d1230;transform:translate(-50%,-50%) rotate(var(--r,-8deg)) scale(.3);opacity:0;animation:popw .9s cubic-bezier(.2,1.4,.4,1) forwards}
+.pop::before,.pop::after{content:attr(data-t);position:absolute;left:0;top:0;z-index:-1;color:var(--yellow);text-shadow:none;opacity:0;animation:pope .9s ease-out forwards}
+.pop::after{animation-delay:.07s}
+@keyframes popw{0%{opacity:0;transform:translate(-50%,-50%) rotate(var(--r)) scale(.3)}22%{opacity:1;transform:translate(-50%,-70%) rotate(var(--r)) scale(1.18)}70%{opacity:1;transform:translate(-50%,-115%) rotate(var(--r)) scale(1)}100%{opacity:0;transform:translate(-50%,-160%) rotate(var(--r)) scale(1.05)}}
+@keyframes pope{0%{opacity:.5;transform:translate(0,0)}100%{opacity:0;transform:translate(-8px,-30px)}}
+
+/* kill cutscene shown after registering */
+.kill{position:fixed;inset:0;z-index:97;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0 16px;text-align:center;background:radial-gradient(circle at 50% 45%,#1a0a14,#05070f 70%);animation:ksin .4s both}
+@keyframes ksin{from{opacity:0}}
+.kill .ks-skip{position:absolute;top:calc(18px + env(safe-area-inset-top,0px));right:18px;color:#fff;border-color:#ffffff66}
+.ks-stage{--cw:clamp(72px,16vw,120px);position:relative;width:min(92vw,720px);height:clamp(200px,34vw,280px);animation:ksshake .45s 1.45s}
+@keyframes ksshake{25%{transform:translate(-10px,4px)}50%{transform:translate(10px,-4px)}75%{transform:translate(-6px,-3px)}}
+.ks-floor{position:absolute;left:0;right:0;bottom:0;height:3px;border-radius:3px;background:#ffffff30}
+.ks-char{position:absolute;bottom:3px;width:var(--cw)}
+.ks-char .cm{width:100%;display:block}
+.ks-flip{transform:scaleX(-1)}
+.ks-tag{position:absolute;left:50%;top:calc(var(--cw)*-.25);transform:translateX(-50%);background:#ffffffee;color:#1b2140;font:700 14px "Space Grotesk";padding:2px 10px;border-radius:99px;white-space:nowrap}
+.ks-killer{left:3%;animation:kswalk .9s .5s ease-in-out forwards}
+@keyframes kswalk{to{left:44%}}
+.ks-killer .cm{animation:kshop .3s .5s 3 ease-in-out}
+@keyframes kshop{50%{transform:translateY(-8px)}}
+.ks-killer .ks-in{animation:ksstab .3s 1.4s forwards}
+@keyframes ksstab{40%{transform:translateX(26px) rotate(8deg)}100%{transform:translateX(14px) rotate(4deg)}}
+.ks-victim{left:62%}
+.ks-victim .ks-in{transform-origin:50% 60%;animation:ksdie 1s 1.45s cubic-bezier(.3,.1,.6,1) forwards}
+@keyframes ksdie{30%{transform:translate(34px,-46px) rotate(24deg)}100%{transform:translate(70px,26px) rotate(96deg)}}
+.ks-victim .ks-tag{animation:ksfadeout .4s 1.5s forwards}
+@keyframes ksfadeout{to{opacity:0}}
+.ks-knife{position:absolute;bottom:calc(var(--cw)*.5);left:calc(44% + var(--cw)*.75);width:calc(var(--cw)*.6);height:10px;background:linear-gradient(90deg,#cfd6e6,#fff);clip-path:polygon(0 30%,85% 0,100% 50%,85% 100%,0 70%);transform-origin:0 50%;opacity:0;animation:ksknife .35s 1.35s forwards}
+@keyframes ksknife{0%{opacity:0;transform:rotate(-70deg)}20%{opacity:1}70%{opacity:1;transform:rotate(20deg)}100%{opacity:0;transform:rotate(30deg)}}
+.ks-splat{position:absolute;left:calc(62% + var(--cw)*.4);bottom:0;width:calc(var(--cw)*1.2);height:calc(var(--cw)*.3);border-radius:50%;background:radial-gradient(#d8232f,#7a1620 70%,#0000 72%);transform:scale(0);animation:kssplat .5s 1.9s forwards}
+@keyframes kssplat{to{transform:scale(1)}}
+.ks-cap{margin-top:26px;font:700 clamp(22px,4vw,34px) "Space Grotesk";color:#fff;opacity:0;transform:translateY(10px);animation:ksfade .5s 2.4s forwards}
+@keyframes ksfade{to{opacity:1;transform:none}}
+.ks-ok{margin-top:14px;font:700 clamp(34px,7vw,72px)/1 "Space Grotesk";font-style:italic;text-transform:uppercase;color:var(--green);text-shadow:3px 3px 0 #0d1230;opacity:0;transform:scale(.4) rotate(-4deg);animation:ksok .6s 3.2s cubic-bezier(.2,1.4,.4,1) forwards}
+@keyframes ksok{to{opacity:1;transform:rotate(-2deg)}}
+.ks-flash{position:absolute;inset:0;background:#e3262f;opacity:0;pointer-events:none;animation:ksflash .6s 1.45s}
+@keyframes ksflash{0%{opacity:.85}100%{opacity:0}}
+
+/* Developer log */
+.devlog{padding:90px 0 60px}
+.dl-term{margin-top:26px;border-radius:16px;overflow:hidden;background:#080c22;border:1px solid #ffffff22;box-shadow:0 14px 40px #0006;font:14px/1.6 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#d8def5}
+.dl-bar{display:flex;align-items:center;gap:7px;padding:10px 14px;background:#141a3d;border-bottom:1px solid #ffffff18}
+.dl-bar i{width:11px;height:11px;border-radius:50%;background:#F45858}
+.dl-bar i:nth-child(2){background:#FFD166}.dl-bar i:nth-child(3){background:#8DD982}
+.dl-bar span{margin-left:8px;color:var(--muted);font-size:13px}
+.dl-body{padding:20px 22px 24px}
+.dl-entry+.dl-entry{margin-top:22px}
+.dl-entry h3{font:700 15px ui-monospace,Menlo,Consolas,monospace;margin-bottom:6px;display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.dl-v{color:var(--green)}.dl-v.warn{color:var(--yellow)}
+.dl-entry time{color:var(--muted);font-weight:400}
+.dl-entry em{font-style:normal;font-size:12px;padding:1px 8px;border-radius:99px;background:var(--red);color:#fff}
+.dl-entry ul{margin:0;padding:0;list-style:none}
+.dl-entry li{position:relative;padding-left:20px}
+.dl-entry li::before{content:">";position:absolute;left:0;color:var(--blue)}
+.dl-prompt{margin-top:22px;color:var(--green)}
+.dl-caret{display:inline-block;width:8px;height:15px;background:var(--green);vertical-align:-2px;animation:dlblink 1s steps(2) infinite}
+@keyframes dlblink{50%{opacity:0}}
+[data-theme=light] .dl-term{box-shadow:0 0 0 2px #1b214022}
+@media (prefers-reduced-motion:reduce){.dl-caret{animation:none}}
